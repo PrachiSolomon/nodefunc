@@ -1,10 +1,14 @@
 const fdk=require('@fnproject/fdk');
 
-fdk.handle(function(input){
+fdk.handle(function(input, ctx){
   let name = 'World';
-  if (input.name) {
-    name = input.name;
+  if (input) {
+    name = input;
   }
-  console.log('\nInside Node Hello World function')
-  return {'message': 'Hello ' + name}
+  let hctx = ctx.httpGateway
+  console.log("Request URL" , hctx.requestURL)
+  
+  console.log("Authorization header:" , hctx.getHeader("Authorization"))
+  console.log( hctx.headers)
+  return 'Hello ' + name + ' from Node call ' + ctx.callID + '!';
 })
