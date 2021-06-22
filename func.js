@@ -10,5 +10,5 @@ fdk.handle(function(input, ctx){
   
   console.log("Authorization header:" , hctx.getHeader("Authorization"))
   console.log( hctx.headers)
-  return 'Hello ' + name + ' from Node call ' + ctx.callID + '!';
+  return 'Hello --hello ' + name + ' from Node call ' + ctx.callID + '!';
 })
